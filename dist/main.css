@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.nav-bar{
+    width: 100%;
+    height: 100px;
+    border: 2px solid black;
+    z-index: 99;
+
+}
+
+.box{
+    width: 40%;
+}
