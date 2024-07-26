@@ -30,6 +30,7 @@
     width: 100%;
     height: calc(100vh - 100px);   
    border: 2px solid red;
+   background-color: #6da3e1;
    
     
     
@@ -37,13 +38,25 @@
 
 .city_weather{
 width: 80%;
-background-color:#4546D7;
+
 
 
 }
 
 .five_days_weather{
     width: 80%;
-    background-color: yellow;
-    margin-top: 50px;
+    background-color: white;
+    
+    
+}
+
+.card{
+
+ background-color: #95989a;
+
+}
+
+.weather_data{
+    
+    justify-content: space-evenly;
 }

@@ -588,12 +588,44 @@ video {
   }
 }
 
+.m-7 {
+  margin: 1.75rem;
+}
+
 .flex {
   display: flex;
 }
 
-.w-full {
-  width: 100%;
+.h-52 {
+  height: 13rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-lvh {
+  height: 100lvh;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.w-52 {
+  width: 13rem;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .appearance-none {
@@ -610,6 +642,10 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -618,8 +654,20 @@ video {
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -634,9 +682,18 @@ video {
   border-style: solid;
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-white {
@@ -647,6 +704,22 @@ video {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-9 {
+  padding: 2.25rem;
+}
+
+.p-7 {
+  padding: 1.75rem;
 }
 
 .py-2 {
@@ -674,13 +747,36 @@ video {
   padding-inline-start: 1.25rem;
 }
 
+.ps-9 {
+  padding-inline-start: 2.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .leading-6 {
   line-height: 1.5rem;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-slate-900 {
@@ -744,17 +840,24 @@ video {
   width: 100%;
   height: calc(100vh - 100px);
   border: 2px solid red;
+  background-color: #6da3e1;
 }
 
 .city_weather{
   width: 80%;
-  background-color:#4546D7;
 }
 
 .five_days_weather{
   width: 80%;
-  background-color: yellow;
-  margin-top: 50px;
+  background-color: white;
+}
+
+.card{
+  background-color: #95989a;
+}
+
+.weather_data{
+  justify-content: space-evenly;
 }
 
 .focus\:outline-none:focus {
