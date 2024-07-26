@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/style.css">
-    <link rel="stylesheet" href="/dist/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/style.css" />
+    <link rel="stylesheet" href="/dist/main.css" />
     <title>weather web</title>
-</head>
-<body>
- <div class="main-container bg-white">
+  </head>
+  <body>
+    <div class="main-container bg-white">
+      <nav
+        class="nav-bar bg-zinc-800 flex justify-between items-center text-white"
+      >
+        <h1 class="ps-5">Weather</h1>
+        <div class="box flex justify-between items-center gap-6 pe-5">
+          <input
+            class=" city_name focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+            type="text"
+            aria-label="Filter projects"
+            placeholder="Search City"
+          />
+          <button
+            class="search border-solid border-2 border-white rounded-md text-sm py-2 ps-3 pe-3"
+          >
+            Search
+          </button>
+          <button>menu</button>
+        </div>
+      </nav>
 
-<nav class="nav-bar bg-zinc-800 flex justify-between items-center text-white ">
-<h1 class="ps-5">Weather</h1>
-<div class="box flex justify-between items-center gap-6 pe-5 ">
-    <input class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search">
-    <button class="search border-solid border-2 border-white">Search</button>
-    <button>menu</button>
-</div>
-</nav>
+      <div class="container flex flex-col justify-center items-center">
+        <div class="city_weather">
+          <div class="weather_display">
+            <h1 class="text-white">Jabalpur (2024/07/26)</h1>
+            <h2 class="text-white">Temperature: 29.20C</h2>
+            <h2 class="text-white">Wind: 4.20 m/s</h2>
+            <h2 class="text-white">Humidity: 80%</h2>
+          </div>
+          <div class="weather_indication">
+            <img src="" alt="" />
+          </div>
+        </div>
 
+        <div class="five_days_weather">
+          <div class="weather_1"><i class="ri-cloudy-fill"></i></div>
+          <div class="weather_2">2</div>
+          <div class="weather_3">3</div>
+          <div class="weather_4">4</div>
+          <div class="weather_5">5</div>
+        </div>
+      </div>
+    </div>
 
- </div>
-  
-<script src="script.js"></script>
- 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

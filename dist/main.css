@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+*{
+    overflow: hidden;
+}
 
 .main-container{
     width: 100vw;
@@ -21,4 +23,27 @@
 
 .box{
     width: 40%;
+}
+
+
+.container{
+    width: 100%;
+    height: calc(100vh - 100px);   
+   border: 2px solid red;
+   
+    
+    
+}
+
+.city_weather{
+width: 80%;
+background-color:#4546D7;
+
+
+}
+
+.five_days_weather{
+    width: 80%;
+    background-color: yellow;
+    margin-top: 50px;
 }
