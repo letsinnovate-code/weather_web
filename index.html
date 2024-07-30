@@ -17,12 +17,12 @@
         class="nav-bar bg-zinc-800 flex justify-between items-center text-white"
       >
        <div class="left_nav flex gap-10">
-        <h1 class="ps-5">Weather</h1>
+        <h1 class="ps-5 text-3xl">Weather</h1>
         <select name="cities" id="cities" class="text-white bg-transparent">
-          <option class="text-black" value="">Jabalpur</option>
-          <option class="text-black" value="">Delhi</option>
-          <option class="text-black" value="">Indore</option>
-          <option class="text-black" value="">Bhopal</option>
+          <option class="text-black" value=""></option>
+          <option class="text-black" value=""></option>
+          <option class="text-black" value=""></option>
+          <option class="text-black" value=""></option>
         </select>
        </div>
         <div class="box flex justify-end items-center gap-6 pe-5">
@@ -37,13 +37,13 @@
           >
             Search
           </button>
-          
+          <button>Current Location</button>
         </div>
       </nav>
 
       <div class="container flex flex-col justify-center items-center">
-        <div class="city_weather  border-2 border-solid border-black h-40">
-          <div class="weather_display">
+        <div class="city_weather  border-2 border-solid border-black h-40 rounded-lg">
+          <div class="weather_display ">
             <ul class="weather_data_first flex justify-between items-center">
               <li class="current_day p-7 text-lg">
                 <h3>(_____)</h3>
@@ -51,8 +51,9 @@
                 <h4>Wind:__M/S</h4>
                 <h4>Humidity:__%</h4>
           </li>
-           <li>
+           <li class="pe-7 ">
             <img src="cloudy-fill.png" , alt="weather_icon" alt="" />
+            <h2 class="">Rain</h2>
           </li>
          
           </ul>
@@ -60,9 +61,9 @@
          
         </div>
 
-        <div class="five_days_weather p-5 h-96  ">
+        <div class="five_days_weather p-5 h-96 relative rounded-lg">
           <h2 class="text-center m-7 text-4xl">5-Days Forecast</h2>
-          <ul class="weather_data flex justify-around  ">
+          <ul class="weather_data flex justify-around gap-3 ">
 
             <li class="card card rounded-lg w-52 p-4 h-52">
               <h3>(_____)</h3>
@@ -71,14 +72,14 @@
               <h4>Humidity:__%</h4>
             </li>
 
-            <li class="card card rounded-lg w-52 p-4 h-52">
+            <li class="card card rounded-lg w-52 p-4 h-52 " >
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>
               <h4>Humidity:__%</h4>
             </li>
 
-            <li class="card card rounded-lg w-52 p-4 h-52">
+            <li class="card card rounded-lg w-52 p-4 h-52 ">
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>

@@ -588,6 +588,10 @@ video {
   }
 }
 
+.relative {
+  position: relative;
+}
+
 .m-7 {
   margin: 1.75rem;
 }
@@ -596,28 +600,16 @@ video {
   display: flex;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
 .h-52 {
   height: 13rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
-.h-lvh {
-  height: 100lvh;
-}
-
 .h-96 {
   height: 24rem;
-}
-
-.h-56 {
-  height: 14rem;
-}
-
-.h-40 {
-  height: 10rem;
 }
 
 .w-52 {
@@ -658,8 +650,16 @@ video {
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-6 {
@@ -714,10 +714,6 @@ video {
   padding: 1.25rem;
 }
 
-.p-9 {
-  padding: 2.25rem;
-}
-
 .p-7 {
   padding: 1.75rem;
 }
@@ -747,8 +743,8 @@ video {
   padding-inline-start: 1.25rem;
 }
 
-.ps-9 {
-  padding-inline-start: 2.25rem;
+.pe-7 {
+  padding-inline-end: 1.75rem;
 }
 
 .text-center {
@@ -760,14 +756,24 @@ video {
   line-height: 2.5rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .leading-6 {
@@ -839,8 +845,7 @@ video {
 .container{
   width: 100%;
   height: calc(100vh - 100px);
-  border: 2px solid red;
-  background-color: #6da3e1;
+  background-color: #7C7874;
 }
 
 .city_weather{

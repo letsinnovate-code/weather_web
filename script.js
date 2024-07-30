@@ -10,21 +10,26 @@ const API_KEY = `ee776f55501df664931d5a5629d4ef09`;
 function firstweatherCard(fiveDaysForecast ,data){
     return `   <li class="current_day p-7 text-lg">
             <h1 class="text-white">${data.city.name} (${fiveDaysForecast.dt_txt.split(" ")[0]})</h1>
+            
             <h2 class="text-white">Temp: ${fiveDaysForecast.main.temp}C</h2>
             <h2 class="text-white">Wind: ${fiveDaysForecast.wind.speed}m/s</h2>
             <h2 class="text-white">Humidity:${fiveDaysForecast.main.humidity}%</h2>
           </li>
-           <li>
-            <img src="https://openweathermap.org/img/wn/${fiveDaysForecast.weather[0].icon}@2x.png" , alt="weather_icon" alt="" />
+           <li class=" p-7 flex flex-col justify-center items-center mb-2">
+            <img src="https://openweathermap.org/img/wn/${fiveDaysForecast.weather[0].icon}@2x.png" , alt="weather_icon" />
+            <h2 class="text-white ">${fiveDaysForecast.weather[0].description}</h2>
           </li>`;
 }
 
 //  function to display five days weather details
 
 function weatherCard(weatherItem) {
-  return `<li class="card rounded-lg flex flex-col justify-center w-52 p-6 h-64">
+  return `<li class="card rounded-lg p-4 w-52 text-white font-sans">
               <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
               <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" class="h-3 w-3" , alt="weather_icon">
+           
+              <h2>${weatherItem.weather[0].description}</h2>
+              
               <h4>Temp: ${weatherItem.main.temp}C</h4>
               <h4>Wind: ${weatherItem.wind.speed}m/s</h4>
               <h4>Humidity:${weatherItem.main.humidity}%</h4>
@@ -51,34 +56,37 @@ function getWeatherDetails(name, lat, lon) {
         }
         return false;
       });
-      localStorage.setItem("weatherData",JSON.stringify(fiveDaysForecast));
+      localStorage.setItem("storedData",JSON.stringify(fiveDaysForecast));
       
-      inputValue.value = "";
+      
+      
+      
       weatherData.innerHTML = "";
-      fiveDaysForecast.forEach((weatherItem) => {
-        weatherData.insertAdjacentHTML(
-          "beforeend",
-          weatherCard(weatherItem)
+      let savedWeatherData = JSON.parse(localStorage.getItem("storedData"));
+      savedWeatherData.forEach( (weatherItem)=> {
+        
+        
+        weatherData.insertAdjacentHTML("beforeend",weatherCard(weatherItem)
         );
         
         
       });
       
       weatherDataFirst.innerHTML="";
-      weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(fiveDaysForecast[0],data));
+      weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(savedWeatherData[0],data));
     })
     .catch((err) =>{console.log(err)});
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
-  let savedWeatherData = JSON.parse(localStorage.getItem("weatherData"));
+
+document.addEventListener("DOMContentLoaded",function (){
+  let savedWeatherData = JSON.parse(localStorage.getItem("storedData"));
 
   if(savedWeatherData){
-    
+    inputValue.value = "";
     weatherData = "";
-    savedWeatherData.forEach((weatherItem)=>{
-
-      weatherData.insertAdjacentHTML("beforeend",weatherCard(weatherItem));
+    savedWeatherData.forEach( (weatherItem) =>{
+      weatherData.insertAdjacentHTML("beforeend", weatherCard(weatherItem));
 
     });
     if(savedWeatherData.length > 0){
@@ -113,6 +121,9 @@ function getCity() {
 
 // add the event listener to the search button 
 
-searchBtn.addEventListener("click", getCity);
+searchBtn.addEventListener("click",getCity )
+  
+
 
 // add the event listener to the document 
+
