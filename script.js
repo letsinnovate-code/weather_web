@@ -1,7 +1,13 @@
 const searchBtn = document.querySelector(".search");
+const locationBtn = document.querySelector(".location_btn");
 const inputValue = document.querySelector(".city_name");
-let weatherData = document.querySelector(".weather_data");
 const weatherDataFirst = document.querySelector(".weather_data_first");
+let dropDownList = document.querySelector("#cities");
+const citiesList = document.querySelector(".dropdown_list");
+let weatherData = document.querySelector(".weather_data");
+
+
+// API key to fetch api
 const API_KEY = `ee776f55501df664931d5a5629d4ef09`;
 
 
@@ -44,10 +50,9 @@ function getWeatherDetails(name, lat, lon) {
 
   fetch(url)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data)=>{  
       console.log(data);
-      
-      const uniqueforecastDays = [];
+       const uniqueforecastDays = [];
       const fiveDaysForecast = data.list.filter((forecast) => {
         const forecastDate = new Date(forecast.dt_txt).getDate();
         if (!uniqueforecastDays.includes(forecastDate)) {
@@ -56,11 +61,10 @@ function getWeatherDetails(name, lat, lon) {
         }
         return false;
       });
-      localStorage.setItem("storedData",JSON.stringify(fiveDaysForecast));
-      
-      
-      
-      
+
+      localStorage.setItem("everyData",JSON.stringify(data));  
+      localStorage.setItem("storedData",JSON.stringify(fiveDaysForecast));     
+          
       weatherData.innerHTML = "";
       let savedWeatherData = JSON.parse(localStorage.getItem("storedData"));
       savedWeatherData.forEach( (weatherItem)=> {
@@ -74,54 +78,95 @@ function getWeatherDetails(name, lat, lon) {
       
       weatherDataFirst.innerHTML="";
       weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(savedWeatherData[0],data));
+
+
+
+      
+    
+      
     })
+
+    
+
     .catch((err) =>{console.log(err)});
 }
 
 
-document.addEventListener("DOMContentLoaded",function (){
-  let savedWeatherData = JSON.parse(localStorage.getItem("storedData"));
 
-  if(savedWeatherData){
-    inputValue.value = "";
-    weatherData = "";
-    savedWeatherData.forEach( (weatherItem) =>{
-      weatherData.insertAdjacentHTML("beforeend", weatherCard(weatherItem));
-
-    });
-    if(savedWeatherData.length > 0){
-      weatherDataFirst.innerHTML = "";
-      weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(savedWeatherData[0],{list:savedWeatherData}));
-    }
-  }
-});
 
 // function to get the details of longitude and latitude by search the city name 
 
 
 function getCity() {
+  dropDown();
   const cityName = inputValue.value.trim();
   if (!cityName) return;
-  console.log(cityName);
+  
 
   fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${API_KEY}`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      
+      
       if (data.length == 0) return alert(`no cordinates found for ${cityName}`);
 
       const { name, lat, lon } = data[0];
       getWeatherDetails(name, lat, lon);
       
+      
+      
+      
+      
     })
     .catch((error) => console.log(error));
+
+
+    
+    
 }
+
+
+// function to get current location
+const getCurrentLocation = ()=>{
+navigator.geolocation.getCurrentPosition(
+  position=>{
+    console.log(position)
+    const {name,latitude,longitude} = position.coords;
+    getWeatherDetails(name,latitude,longitude);
+    
+  },
+  error=> 
+  {
+    console.log("Cannot access Your location!")
+  }
+);
+}
+
+dropDownList.innerHTML ="";         
+function dropDown(){
+  
+    const savedcityData = JSON.parse(localStorage.getItem("everyData"));
+    return `<option class="dropdown_list text-black" value="Helllo">${savedcityData.city.name}</option>`
+  
+}
+dropDownList.insertAdjacentHTML("beforeend",dropDown)
+            
+            
+    
+  
+
+
+
 
 // add the event listener to the search button 
 
-searchBtn.addEventListener("click",getCity )
+searchBtn.addEventListener("click", getCity);
+
+
+locationBtn.addEventListener("click", getCurrentLocation);
+// dropDownList.addEventListener("click",dropDown);
   
 
 
