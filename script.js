@@ -14,27 +14,26 @@ const API_KEY = `ee776f55501df664931d5a5629d4ef09`;
 // function to display current day weather details 
 
 function firstweatherCard(fiveDaysForecast ,data){
-    return `   <li class="current_day p-7 text-lg">
-            <h1 class="text-white">${data.city.name} (${fiveDaysForecast.dt_txt.split(" ")[0]})</h1>
-            
-            <h2 class="text-white">Temp: ${fiveDaysForecast.main.temp}C</h2>
-            <h2 class="text-white">Wind: ${fiveDaysForecast.wind.speed}m/s</h2>
-            <h2 class="text-white">Humidity:${fiveDaysForecast.main.humidity}%</h2>
+    return `   <li class="current_day pl-7 pt-3 text-lg">
+            <h3 class="text-white">${data.city.name} (${fiveDaysForecast.dt_txt.split(" ")[0]})</h3>           
+            <h4 class="text-white">Temp: ${fiveDaysForecast.main.temp}C</h4>
+            <h4 class="text-white">Wind: ${fiveDaysForecast.wind.speed}m/s</h4>
+            <h4 class="text-white">Humidity:${fiveDaysForecast.main.humidity}%</h4>
           </li>
-           <li class=" p-7 flex flex-col justify-center items-center mb-2">
-            <img src="https://openweathermap.org/img/wn/${fiveDaysForecast.weather[0].icon}@2x.png" , alt="weather_icon" />
-            <h2 class="text-white ">${fiveDaysForecast.weather[0].description}</h2>
+           <li class="mr-5 mt-4 mb-5 text-center">
+            <img src="https://openweathermap.org/img/wn/${fiveDaysForecast.weather[0].icon}@2x.png" , alt="weather_icon" class="size-16" />
+            <h4 class="text-white pt-1  pr-3 ">${fiveDaysForecast.weather[0].description}</h4>
           </li>`;
 }
 
 //  function to display five days weather details
 
 function weatherCard(weatherItem) {
-  return `<li class="card rounded-lg p-4 w-52 text-white font-sans">
+  return `<li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans">
               <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
-              <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" class="h-3 w-3" , alt="weather_icon">
+              <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" class="size-20" , alt="weather_icon">
            
-              <h2>${weatherItem.weather[0].description}</h2>
+              <h4>${weatherItem.weather[0].description}</h4>
               
               <h4>Temp: ${weatherItem.main.temp}C</h4>
               <h4>Wind: ${weatherItem.wind.speed}m/s</h4>
@@ -62,22 +61,27 @@ function getWeatherDetails(name, lat, lon) {
         return false;
       });
 
+
       localStorage.setItem("everyData",JSON.stringify(data));  
       localStorage.setItem("storedData",JSON.stringify(fiveDaysForecast));     
           
       weatherData.innerHTML = "";
       let savedWeatherData = JSON.parse(localStorage.getItem("storedData"));
-      savedWeatherData.forEach( (weatherItem)=> {
+      for(let i=0;i<savedWeatherData.length;i++){
         
+        if(i===0){
+          weatherDataFirst.innerHTML="";
+          weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(savedWeatherData[0],data));
+        }
+        if(i>0){
+          weatherData.insertAdjacentHTML("beforeend",weatherCard(savedWeatherData[i]));
+        }
         
-        weatherData.insertAdjacentHTML("beforeend",weatherCard(weatherItem)
-        );
-        
-        
-      });
+      }
+
+     
       
-      weatherDataFirst.innerHTML="";
-      weatherDataFirst.insertAdjacentHTML("beforeend",firstweatherCard(savedWeatherData[0],data));
+      
 
 
 
@@ -98,7 +102,7 @@ function getWeatherDetails(name, lat, lon) {
 
 
 function getCity() {
-  dropDown();
+ 
   const cityName = inputValue.value.trim();
   if (!cityName) return;
   
@@ -144,14 +148,34 @@ navigator.geolocation.getCurrentPosition(
 );
 }
 
-dropDownList.innerHTML ="";         
+// dropDownList.innerHTML ="";         
 function dropDown(){
   
     const savedcityData = JSON.parse(localStorage.getItem("everyData"));
-    return `<option class="dropdown_list text-black" value="Helllo">${savedcityData.city.name}</option>`
-  
+    let cityExists = false;
+    for(let i = 0 ;i<savedcityData.length; i++){
+if(dropDownList.options[i].text === savedcityData[i].city.name){
+  // dropDownList.insertAdjacentHTML("beforeend",`<option class="dropdown_list text-black cursor-pointer" value="">${savedcityData[i].city.name}</option>`)
+  cityExists = true;
+  break;
 }
-dropDownList.insertAdjacentHTML("beforeend",dropDown)
+    }
+    dropDownList.innerHTML ="";
+    if(!cityExists){
+     
+      dropDownList.insertAdjacentHTML("beforeend",`<option class="dropdown_list text-black cursor-pointer" value="">${savedcityData[i].city.name}</option>`)
+    }
+    
+      
+    
+    
+}
+
+
+citiesList.addEventListener("click",()=>{
+getCity();
+getWeatherDetails();
+})
             
             
     
@@ -162,12 +186,15 @@ dropDownList.insertAdjacentHTML("beforeend",dropDown)
 
 // add the event listener to the search button 
 
-searchBtn.addEventListener("click", getCity);
+searchBtn.addEventListener("click", getCity||dropDown);
 
 
 locationBtn.addEventListener("click", getCurrentLocation);
 // dropDownList.addEventListener("click",dropDown);
   
+
+document.addEventListener("DOMContentLoaded",dropDown)
+
 
 
 // add the event listener to the document 

@@ -9,50 +9,62 @@
     />
     <link rel="stylesheet" href="/dist/style.css" />
     <link rel="stylesheet" href="/dist/main.css" />
-    <title>weather web</title>
+    <title>Weather Forecast</title>
   </head>
-  <body>
+  <body class="">
     <div class="main-container bg-white">
       <nav
-        class="nav-bar bg-zinc-800 flex justify-between items-center text-white"
+        class="nav-bar bg-zinc-800 flex justify-between items-center text-white max-[375]: h-16 "
       >
-       <div class="left_nav flex gap-10">
-        <h1 class="ps-5 text-3xl">Weather</h1>
+       
+        <h1 class=" weather_logo ps-5 text-3xl  ">Weather</h1>
         
-        <select name="cities" id="cities" class="text-white bg-transparent">
-          
+        <select name="cities" id="cities" class="text-white bg-transparent mr-5">
+          <option class="dropdown_list text-black cursor-pointer" value="Helllo">Delhi</option>
+          <option class="dropdown_list text-black" value="Helllo">Delhi</option>
+          <option class="dropdown_list text-black" value="Helllo">Delhi</option>
+          <option class="dropdown_list text-black" value="Helllo">Delhi</option>
           
         </select>
-       </div>
-        <div class="box flex justify-end items-center gap-6 pe-5">
-          <input
-            class=" city_name focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-56 text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+       
+       
+      </nav>
+
+      <div class="container flex flex-col justify-center items-center">
+        <div class="box flex flex-col justify-center items-center gap-6 pe-5  w-11/12  h-40 ">
+          <div class="search_div gap-6 pe-5">
+            <input
+            class=" city_name focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-60 mr-2 text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-lg py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
             type="text"
             aria-label="Filter projects"
             placeholder="Search City"
           />
           <button
-            class="search border-solid border-2 border-white rounded-md text-sm py-2 ps-3 pe-3 bg-red-600 hover:bg-blue-600"
+            class="search  rounded-md text-sm py-2.5 ps-3 pe-3 w-32 text-white bg-violet-500 hover:bg-indigo-900 "
           >
             Search
           </button>
-          <button class=" location_btn border-solid border-2 border-white rounded-md text-sm py-2 ps-3 pe-3 bg-green-400 hover:bg-blue-600">Current Location</button>
+          </div>
+          
+          
+          <div class="flex justify-evenly items-start w-9/12 ">
+            <button class=" location_btn text-white rounded-md text-sm p-1  w-64 bg-violet-500 hover:bg-violet-700">Current Location</button>
+          </div>
+         
         </div>
-      </nav>
+        <div class="city_weather  bg-blue-400 h-40 rounded-t-lg">
 
-      <div class="container flex flex-col justify-center items-center">
-        <div class="city_weather  border-2 border-solid border-black h-40 rounded-lg">
           <div class="weather_display ">
-            <ul class="weather_data_first flex justify-between items-center">
-              <li class="current_day p-7 text-lg">
-                <h3>(_____)</h3>
+            <ul class="weather_data_first flex justify-between items-center text-white">
+              <li class="current_day pl-7 pt-2 text-lg">
+                <h3>(_____)</h3>                
                 <h4>Temp:__°C</h4>
                 <h4>Wind:__M/S</h4>
                 <h4>Humidity:__%</h4>
           </li>
-           <li class="pe-7 ">
-            <img src=""  />
-            <h2 class=""></h2>
+           <li class="mr-5 mt-6  text-center">
+            <img src="cloudy-fill.png" class="size-14" />
+            <h4 class="pt-1  pr-3">light rain</h4>
           </li>
          
           </ul>
@@ -60,32 +72,36 @@
          
         </div>
 
-        <div class="five_days_weather p-5 h-96 relative rounded-lg">
-          <h2 class="text-center m-7 text-4xl">5-Days Forecast</h2>
-          <ul class="weather_data flex justify-around gap-3 ">
+        <div class="five_days_weather p-5 h-96 ">
+          <h2 class="text-center  text-4xl">5-Days Forecast</h2>
+          <ul class="weather_data text-black flex justify-evenly gap-3 mt-7 max-[375px]: flex-wrap  ">
 
-            <li class="card card rounded-lg w-52 p-4 h-52">
+
+           
+
+            <li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans">
+              <h3>(_____)</h3>
+              
+              <h4>Temp:__°C</h4>
+              <h4>Wind:__M/S</h4>
+              <h4>Humidity:__%</h4>
+            </li>
+
+            <li class="card bg-blue-500 rounded-lg w-52 p-4  h-60 font-sans " >
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>
               <h4>Humidity:__%</h4>
             </li>
 
-            <li class="card card rounded-lg w-52 p-4 h-52 " >
+            <li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans ">
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>
               <h4>Humidity:__%</h4>
             </li>
 
-            <li class="card card rounded-lg w-52 p-4 h-52 ">
-              <h3>(_____)</h3>
-              <h4>Temp:__°C</h4>
-              <h4>Wind:__M/S</h4>
-              <h4>Humidity:__%</h4>
-            </li>
-
-            <li class="card card rounded-lg w-52 p-4 h-52">
+            <li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans">
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>
@@ -93,7 +109,7 @@
             </li>
 
 
-            <li class="card card rounded-lg w-52 p-4 h-52">
+            <li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans">
               <h3>(_____)</h3>
               <h4>Temp:__°C</h4>
               <h4>Wind:__M/S</h4>
