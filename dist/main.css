@@ -23,9 +23,7 @@
 
 }
 
-.box{
-    width: 40%;
-}
+
 
 
 .container{
@@ -56,16 +54,58 @@ width: 80%;
 
 
 @media screen and (max-width:375px) {
+    
+}
+
+
+
+@media screen and (max-width:768px) {
+    
+   
     .weather_logo{
         
-        font-size: 1vh;
+        font-size: 3vh;
 
     }
+    .city_name{
+        width: 40vw;
+    }
 
-    .box{
+    .current_day h4{
+        padding-top: 5px;
+        font-size: 2vh;
+        
+    }
+    .current_day h3{
+        color: black;
+        padding-top: 10px;
+        font-size: 2.5vh;
+    }
+    .container{
         width: 100%;
-        height: 200px;
-        margin-top: 100px;
+        height: 140vh;       
     }
+    .five_days_weather{
+        width: 80%;
+        height: 105vh;
+        background-color: white;
+        
+        
+    }
+    .card{
+        width: 35vw;
+        height: 30vh;
+    }
+
+    .card h4{
+        font-size: 2.3vh;
+    }
+
+    .card h3{
+        font-size: 2.3vh;
+    }
+
+
+    
     
 }
