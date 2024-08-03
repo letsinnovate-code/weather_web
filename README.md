@@ -18,3 +18,7 @@ Technologies Used:
 HTML:Provides the basic structure of the application.
 TailwindCSS: A utility-first CSS framework for styling the application.
 JavaScript: Used for making API calls and updating the DOM with the fetched data.
+
+
+
+github link :https://github.com/letsinnovate-code/weather_web.git
