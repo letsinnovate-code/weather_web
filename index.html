@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="/dist/main.css" />
     <title>Weather Forecast</title>
   </head>
-  <body class="">
-    <div class="main-container bg-white">
+  <body class=" p-0 m-0 box-border">
+    <div class="main-container  max-[376px]:h-auto bg-violet-400">
       <nav
-        class="nav-bar bg-zinc-800 flex justify-between items-center text-white max-[375]: h-16 "
+        class="nav-bar bg-zinc-800 flex justify-between items-center text-white "
       >
        
         <h1 class=" weather_logo ps-5 text-3xl  ">Weather</h1>
@@ -30,17 +30,17 @@
        
       </nav>
 
-      <div class="container flex flex-col  items-center">
-        <div class="box flex flex-col justify-center items-center gap-6 pe-5  w-11/12  h-40 ">
+      <div class="container flex flex-col  items-center max-[376px]:max-h-max ">
+        <div class="box flex flex-col justify-center items-center gap-6 pe-5  w-11/12  h-40 max-[376px]:mt-4 mb-4 ml-6">
           <div class="search_div gap-6 pe-5">
             <input
-            class=" city_name focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-60 mr-2 text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-lg py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
+            class=" city_name focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-60 mr-2 text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-lg py-2 pl-10 ring-1 ring-slate-200 shadow-sm max-[376px]:w-52"
             type="text"
             aria-label="Filter projects"
             placeholder="Search City"
           />
           <button
-            class="search  rounded-md text-sm py-2.5 ps-3 pe-3 w-32 text-white bg-violet-500 hover:bg-indigo-900 "
+            class="search  rounded-md text-sm py-2.5 ps-3 pe-3 w-32 text-white bg-violet-500 hover:bg-indigo-900  max-[376px]:w-20 "
           >
             Search
           </button>
@@ -48,7 +48,7 @@
           
           
           <div class="flex justify-evenly items-start w-9/12 ">
-            <button class=" location_btn text-white rounded-md text-sm p-1  w-64 bg-violet-500 hover:bg-violet-700">Current Location</button>
+            <button class=" location_btn text-white rounded-md text-sm p-1  w-64 bg-violet-500 hover:bg-violet-700  max-[376px]:w-52 mr-5">Current Location</button>
           </div>
          
         </div>
@@ -56,7 +56,7 @@
 
           <div class="weather_display ">
             <ul class="weather_data_first flex justify-between items-center text-white">
-              <li class="current_day pl-7 pt-2 text-lg">
+              <li class="current_day pl-7 pt-1 text-lg">
                 <h3>(_____)</h3>                
                 <h4>Temp:__°C</h4>
                 <h4>Wind:__M/S</h4>
@@ -72,12 +72,9 @@
          
         </div>
 
-        <div class="five_days_weather p-5 h-96 ">
+        <div class="five_days_weather p-5 h-96 sm: bg-red-500 ">
           <h2 class="text-center  text-4xl">5-Days Forecast</h2>
           <ul class="weather_data text-black flex justify-evenly gap-3 mt-7 max-[375px]: flex-wrap  ">
-
-
-           
 
             <li class="card bg-blue-500 rounded-lg w-52 p-4 h-60 font-sans">
               <h3>(_____)</h3>

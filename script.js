@@ -104,7 +104,9 @@ function getWeatherDetails(name, lat, lon) {
 function getCity() {
  
   const cityName = inputValue.value.trim();
-  if (!cityName) return;
+  if (!cityName){
+    alert("Please enter City Name!")
+  };
   
 
   fetch(
@@ -114,7 +116,7 @@ function getCity() {
     .then((data) => {
       
       
-      if (data.length == 0) return alert(`no cordinates found for ${cityName}`);
+      if (data.length == 0) return alert(`Invalid Name ${cityName}`);
 
       const { name, lat, lon } = data[0];
       getWeatherDetails(name, lat, lon);
@@ -148,35 +150,8 @@ navigator.geolocation.getCurrentPosition(
 );
 }
 
-// dropDownList.innerHTML ="";         
-function dropDown(){
   
-    const savedcityData = JSON.parse(localStorage.getItem("everyData"));
-    let cityExists = false;
-    for(let i = 0 ;i<savedcityData.length; i++){
-if(dropDownList.options[i].text === savedcityData[i].city.name){
-  // dropDownList.insertAdjacentHTML("beforeend",`<option class="dropdown_list text-black cursor-pointer" value="">${savedcityData[i].city.name}</option>`)
-  cityExists = true;
-  break;
-}
-    }
-    dropDownList.innerHTML ="";
-    if(!cityExists){
-     
-      dropDownList.insertAdjacentHTML("beforeend",`<option class="dropdown_list text-black cursor-pointer" value="">${savedcityData[i].city.name}</option>`)
-    }
-    
-      
-    
-    
-}
-
-
-citiesList.addEventListener("click",()=>{
-getCity();
-getWeatherDetails();
-})
-            
+         
             
     
   
@@ -193,7 +168,7 @@ locationBtn.addEventListener("click", getCurrentLocation);
 // dropDownList.addEventListener("click",dropDown);
   
 
-document.addEventListener("DOMContentLoaded",dropDown)
+
 
 
 
