@@ -7,6 +7,7 @@ const citiesList = document.querySelector(".dropdown_list");
 let weatherData = document.querySelector(".weather_data");
 
 
+
 // API key to fetch api
 const API_KEY = `ee776f55501df664931d5a5629d4ef09`;
 
@@ -50,7 +51,7 @@ function getWeatherDetails(name, lat, lon) {
   fetch(url)
     .then((response) => response.json())
     .then((data)=>{  
-      console.log(data);
+      
        const uniqueforecastDays = [];
       const fiveDaysForecast = data.list.filter((forecast) => {
         const forecastDate = new Date(forecast.dt_txt).getDate();
@@ -102,8 +103,9 @@ function getWeatherDetails(name, lat, lon) {
 
 
 function getCity() {
- 
-  const cityName = inputValue.value.trim();
+  
+  const cityName = inputValue.value.trim() || citiesList.text;
+  
   if (!cityName){
     alert("Please enter City Name!")
   };
@@ -161,16 +163,15 @@ navigator.geolocation.getCurrentPosition(
 
 // add the event listener to the search button 
 
-searchBtn.addEventListener("click", getCity||dropDown);
-
+searchBtn.addEventListener("click", getCity);
+dropDownList.addEventListener("click",getCity);
 
 locationBtn.addEventListener("click", getCurrentLocation);
-// dropDownList.addEventListener("click",dropDown);
+
   
 
 
 
 
 
-// add the event listener to the document 
 
